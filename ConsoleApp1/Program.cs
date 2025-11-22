@@ -7,42 +7,53 @@ int i = 0;
 
 do
 {
-    while (GameTitle()!=true)
+    while (!GameTitle())
+
     {
         
     }
     Console.WriteLine(i);
     i++;
 } while (i != 5);
+
 Console.WriteLine("Game over");
 
-bool GameTitle()
-{
-    Console.WriteLine("Please select a difficulty");
-    Console.WriteLine("1 - Easy");
-    Console.WriteLine("2 - Normal");
-    Console.WriteLine("3 - Hard");
-    Console.ReadLine();
-}
-bool VerifyDivision(int a, int b)
-{
-    if(a % b == 0)
+    bool GameTitle()
     {
-        return true;
-    }
-    else
-    {
+        Console.WriteLine("Please select a difficulty");
+        Console.WriteLine("1 - Easy");
+        Console.WriteLine("2 - Normal");
+        Console.WriteLine("3 - Hard");
+        if (int.TryParse(Console.ReadLine(), out int userDifficulty )&& userDifficulty is > 0 and < 4)
+            {
+                return true;
+            }
+        Thread.Sleep(400);
+        Console.WriteLine("Please select a valid number");
+        Thread.Sleep(2000);
+        Console.Clear();
         return false;
     }
-}
+
+    bool VerifyDivision(int a, int b)
+    {
+        if (a % b == 0)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
 
 /*int[] GameLogic(string choosenOperator,int difficultyLevel = 3)
 {
-    
+
     switch (difficultyLevel)
     {
         case 1:
-            
+
             break;
         case 2:
             //Normal
