@@ -37,6 +37,8 @@ Console.WriteLine("Game over");
                   }
 
         //Difficulty selector
+
+        
         Console.WriteLine("Please select a difficulty");
         Console.WriteLine("1 - Easy");
         Console.WriteLine("2 - Normal");
@@ -47,7 +49,11 @@ Console.WriteLine("Game over");
             
             int selectedOperator = 0;
             while (!OperatorSelector(out selectedOperator));
-            GameLogic(selectedOperator,userDifficulty);
+            for (int j = 0; j <5 ; j++)
+            {
+                GameLogic(selectedOperator,userDifficulty);
+            }
+            
             return true; 
         }
         Thread.Sleep(400);
@@ -130,9 +136,7 @@ bool GameLogic(int choosenOperator,int difficultyLevel)
     }
     else
     {
-        Console.WriteLine("Incorrect!");
+        Console.WriteLine($"Incorrect! Answer was {result}");
     }
     return true;
 }
-
-
