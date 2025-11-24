@@ -3,18 +3,7 @@
 //TODO:The divisions should result on INTEGERS ONLY and dividends should go from 0 to 100. Example: Your app shouldn't present the division 7/2 to the user, since it doesn't result in an integer.
 //TODO:Users should be presented with a menu to choose an operation
 //TODO:You should record previous games in a List and there should be an option in the menu for the user to visualize a history of previous games. (No storage after closing the program)
-int i = 0;
-do
-{
-    while (!GameTitle())
-
-    {
-        
-    }
-    Console.WriteLine(i);
-    i++;
-} while (i != 5);
-
+while (!GameTitle());
 Console.WriteLine("Game over");
 
     bool GameTitle()
@@ -64,7 +53,7 @@ Console.WriteLine("Game over");
     }
 bool GameLogic(int choosenOperator,int difficultyLevel)
 {
-    bool VerifyDivision(int a, int b)
+    bool IsExactDivision(int a, int b)
      {
          return a % b == 0;
      }
@@ -96,7 +85,7 @@ bool GameLogic(int choosenOperator,int difficultyLevel)
             number1 = numberPicker.Next(1,maximumNumber);
             number2 = numberPicker.Next(1,maximumNumber);
         }
-        while(!VerifyDivision(number1, number2));
+        while(!IsExactDivision(number1, number2));
     }
     else if(choosenOperator ==2 && number1 - number2 <0)
     {
